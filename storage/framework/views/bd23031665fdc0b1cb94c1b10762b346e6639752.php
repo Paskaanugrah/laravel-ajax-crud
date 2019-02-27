@@ -1,0 +1,3 @@
+<a href="<?php echo e($url_show); ?>" class="btn-show" title="Detail: <?php echo e($model->name); ?>"><i class="icon-eye-open text-primary" ></i></a> | 
+<a href="<?php echo e($url_edit); ?>" class="modal-show edit" title="Edit <?php echo e($model->name); ?>"><i class="icon-pencil text-inverse"></i></a> | 
+<a href="<?php echo e($url_destroy); ?>" class="btn-delete" title="<?php echo e($model->name); ?>"><i class="icon-trash text-danger"></i></a>

@@ -37,7 +37,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //test
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|unique:users,email'
+        ]);
+
+        $user = User::create($request->all());
+        return $user;
     }
 
     /**

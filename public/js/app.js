@@ -1,12 +1,12 @@
 $('body').on('click', '.modal-show', function (event) {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     var me = $(this),
         url = me.attr('href');
         title = me.attr('title');
 
     $('#modal-title').text(title);
-    $('#modal-btn-save').text('Create');
+    $('#modal-btn-save').text(me.hasClass('edit') ? 'Update' : 'Create');
 
     $.ajax({
       url: url,
@@ -34,14 +34,22 @@ $('#modal-btn-save').click( function (event) {
             data: form.serialize(),
             success: function(res) {
                 form.trigger('reset');
-                $('modal').modal('hide');
+                $('#modal').modal('hide');
                 $('#datatable').DataTable().ajax.reload();
 
-                swal({
-                    type: 'success',
-                    title: 'Success',
-                    text: 'Data has been saved!'
-                });
+                if (method == 'POST') {
+                    swal({
+                        type: 'success',
+                        title: 'Success',
+                        text: 'Data has been saved!'
+                    });
+                } else if (method == 'PUT') {
+                    swal({
+                        type: 'success',
+                        title: 'Success',
+                        text: 'Data has been updated!'
+                    });
+                }
             },
             error: function (xhr) {res
                 var res = xhr.responseJSON;

@@ -1,6 +1,6 @@
 {!! Form::model($user, [
-    'route' => 'user.store',
-    'method' => 'POST'
+    'route' => $user->exists ? ['user.update', $user->id] : 'user.store',
+    'method' => $user->exists ? 'PUT' : 'POST'
 ]) !!}
     <div class="form-group">
         <label for="" class="control-label">Name</label>

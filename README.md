@@ -1,4 +1,4 @@
 # laravel-ajax-crud
-## This project i create is from IDStack tutorial
+## I'm create this using tutorial from IDStack 
 
-# Includes CRUD with ajax and server side validation
+## Includes CRUD with ajax and server side validation

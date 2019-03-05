@@ -54,7 +54,7 @@ $('#modal-btn-save').click( function (event) {
                 });
             }
         },
-        error: function (xhr) {res
+        error: function (xhr) {
             var res = xhr.responseJSON;
             if ($.isEmptyObject(res) == false) {
                 $.each(res.errors, function (key,value) {
